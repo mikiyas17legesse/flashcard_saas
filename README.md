@@ -2,6 +2,14 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+npm install @mui/material @emotion/react @emotion/styled
+
+npm install @clerk/nextjs
+
+npm install firebase
+
+npm install stripe @stripe/stripe-js
+
 First, run the development server:
 
 ```bash
