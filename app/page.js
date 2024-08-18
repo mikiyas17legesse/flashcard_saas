@@ -42,7 +42,7 @@ export default function Home() {
         <Typography variant="h4" component="h2" gutterBottom>Features</Typography>
         <Grid container spacing={4}>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6">Smart Flashcards</Typography>
+            <Typography variant="h6" gutterBottom>Smart Flashcards</Typography>
             <Typography>
               {''}
               Our AI intelligently breaks down your text into concise
@@ -50,7 +50,7 @@ export default function Home() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6">Accessible Anywhere</Typography>
+            <Typography variant="h6" gutterBottom>Accessible Anywhere</Typography>
             <Typography>
               {''}
               Acces your flashcards from anywhere, on any device. Study
@@ -58,7 +58,7 @@ export default function Home() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Typography variant="h6">Third Input</Typography>
+            <Typography variant="h6" gutterBottom>Third Input</Typography>
             <Typography>
               {''}
               Simply input your text and let our software do the rest. Creating
@@ -88,7 +88,13 @@ export default function Home() {
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Box>
+            <Box
+            sx={{
+              p: 3,
+              border: '1ppx solid',
+              borderColor: 'grey.300',
+              borderRadius: 2,
+            }}>
               <Typography variant="h5">Pro</Typography>
               <Typography variant="h6">$10/month</Typography>
               <Typography>
@@ -99,7 +105,13 @@ export default function Home() {
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Box>
+            <Box
+            sx={{
+              p: 3,
+              border: '1ppx solid',
+              borderColor: 'grey.300',
+              borderRadius: 2,
+            }}>
               <Typography variant="h5">Expert</Typography>
               <Typography variant="h6">$15/month</Typography>
               <Typography>
