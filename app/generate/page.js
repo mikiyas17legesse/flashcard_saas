@@ -1,7 +1,6 @@
 "use client";
-
 import { db } from "@/firebase";
-import { useUser } from "@clerk/nextjs";
+import { useClerk, useUser } from "@clerk/nextjs";
 import {
   Box,
   Button,
@@ -19,18 +18,17 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { collection, doc, writeBatch, getDoc } from "firebase/firestore";
+import { collection, doc, writeBatch, getDoc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export default function generate() {
-  const { isLoaded, isSignedIn, user } = useUser();
-  const { flashcards, setFlashCards } = useState([]);
-  const { flipped, setFlipped } = useState([]);
-  const { text, setText } = useState("");
-  const { name, setName } = useState("");
-  const { open, setOpen } = useState(false);
-  const router = useRouter();
+  const { isLoaded, isSignedIn, user} = useUser();
+  const [ flashcards, setFlashCards ] = useState([]);
+  const [ flipped, setFlipped ] = useState([]);
+  const [text, setText ] = useState("");
+  const  [name, setName] = useState("");
+  const  [open, setOpen] = useState(false);
 
   const handleSubmit = async () => {
     fetch("api/generate", {
@@ -77,14 +75,14 @@ export default function generate() {
     }
 
     const colRef = collection(userDocRef, name);
-    flashcards.array.forEach((flashcard) => {
+    flashcards.forEach((flashcard) => {
       const cardDocRef = doc(colRef);
       batch.set(cardDocRef, flashcard);
     });
 
     await batch.commit();
-    handleClose();
-    router.push("/flashcards");
+    handleClose();  
+    useRouter().push("/flashcards");
   };
 
   return (
@@ -125,7 +123,7 @@ export default function generate() {
           </Button>
         </Paper>
       </Box>
-      {flashcards.length() > 0 && (
+      {flashcards.length> 0 && (
         <Box sx={{ mt: 4 }}>
           <Typography variant="h5"> Flashcard Preview</Typography>
           <Grid container Spacing={3}>
